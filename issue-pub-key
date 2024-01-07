@@ -2,7 +2,7 @@
 
 CA_NAME="foo"
 COMMENT="github@leonmortenrichter.de"
-IDENTITY="Leon Morten Richter"
+IDENTITY="github@leonmortenrichter.de"
 # the *nix users which this certificate should be allowed to log in as.
 # In our example, we're giving this certificate access to pi,foo,bar and baz.
 PRINCIPALS="pi,foo,bar,baz"
@@ -11,7 +11,7 @@ VALID_UNTIL="+1d"
 mkdir -p keys
 
 # Create key-pair
-ssh-keygen -f keys/user-key -b 4096 -t rsa
+ssh-keygen -f keys/user-key -b 4096 -t rsa -C "${COMMENT}"
 
 # Sign pub key
-ssh-keygen -s "ca/${CA_NAME}_ca" -I "${IDENTITY}" -C "${COMMENT}" -n "${PRINCIPALS}" -V "${VALID_UNTIL}" keys/user-key.pub
+ssh-keygen -s "ca/${CA_NAME}_ca" -I "${IDENTITY}" -n "${PRINCIPALS}" -V "${VALID_UNTIL}" keys/user-key.pub
