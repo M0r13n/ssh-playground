@@ -25,3 +25,4 @@ Restart:
 SSH using the key:
 
 `ssh pi@pihole.local -i ./keys/user-key  -v`
+# ssh-playground
