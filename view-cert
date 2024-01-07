@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ssh-keygen -L -f keys/user-key-cert.pub

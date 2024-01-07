@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+CA_NAME="foo"
+
+mkdir -p ca
+
+ssh-keygen -t rsa -b 4096 -f "ca/${CA_NAME}_ca" -C "ca/${CA_NAME}_ca"

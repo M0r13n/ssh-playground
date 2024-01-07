@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+CA_NAME="foo"
+IDENTITY="foobar"
+# the *nix users which this certificate should be allowed to log in as.
+# In our example, we're giving this certificate access to pi,foo,bar and baz.
+PRINCIPALS="pi,foo,bar,baz"
+VALID_UNTIL="+1d"
+
+mkdir -p keys
+
+# Create key-pair
+ssh-keygen -f keys/user-key -b 4096 -t rsa
+
+# Sign pub key
+ssh-keygen -s "ca/${CA_NAME}_ca" -I "${IDENTITY}" -n "${PRINCIPALS}" -V "${VALID_UNTIL}" keys/user-key.pub
