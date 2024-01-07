@@ -42,3 +42,7 @@ Output:
 error: Authentication key RSA SHA256:WTpdo6u+9ghr7/s9bqBDJt1DHTnUQdyn4Vl5a0thMkg revoked by file /etc/ssh/revoked_keys
 error: Authentication key RSA-CERT SHA256:WTpdo6u+9ghr7/s9bqBDJt1DHTnUQdyn4Vl5a0thMkg revoked by file /etc/ssh/revoked_keys
 ```
+
+The list of revoked certificates could be kept up to date on a per host basis:
+
+`*/10 * * * * * curl -s -o /etc/ssh/revoked_keys https://some.web.server/revoked`
